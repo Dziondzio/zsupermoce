@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj": {}
+  },
+  "projects": {
+    "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj",
+        "projectName": "WASDMenuAPI",
+        "projectPath": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj",
+        "packagesPath": "/home/rabbit/.nuget/packages/",
+        "outputPath": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/rabbit/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "CounterStrikeSharp.API": {
+              "target": "Package",
+              "version": "[1.0.355, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/nix/store/a9clw3385jmizh108ma0dhglwb573xfc-dotnet-sdk-8.0.416/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

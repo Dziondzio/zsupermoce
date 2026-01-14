@@ -84,8 +84,8 @@ namespace jRandomSkills
                     skills.Add(skillData.Skill.ToString());
                     menuItems.Add(($"{enemy.PlayerName}", enemy.Index.ToString()));
                 }
-                int ctSkills = Event.counterterroristSkills.Count(s => skills.Contains(s.Name));
-                int ttSkills = Event.terroristSkills.Count(s => skills.Contains(s.Name));
+                int ctSkills = SkillData.Skills.Count(s => skills.Contains(s.Name) && s.TeamNumber == 2);
+                int ttSkills = SkillData.Skills.Count(s => skills.Contains(s.Name) && s.TeamNumber == 1);
                 if ((player.Team == CsTeam.Terrorist && ctSkills == skills.Count) || (player.Team == CsTeam.CounterTerrorist && ttSkills == skills.Count))
                 {
                     Event.SetRandomSkill(player);
@@ -111,8 +111,8 @@ namespace jRandomSkills
             var enemyInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == enemy.SteamID);
             if (playerInfo == null || enemyInfo == null) return;
             var enemySkill = enemyInfo.Skill;
-            bool ctSkill = Event.counterterroristSkills.Any(s => s.Name == enemySkill.ToString());
-            bool ttSkill = Event.terroristSkills.Any(s => s.Name == enemySkill.ToString());
+            bool ctSkill = SkillData.Skills.Any(s => s.Name == enemySkill.ToString() && s.TeamNumber == 2);
+            bool ttSkill = SkillData.Skills.Any(s => s.Name == enemySkill.ToString() && s.TeamNumber == 1);
 
             if ((player.Team == CsTeam.Terrorist && ctSkill) || (player.Team == CsTeam.CounterTerrorist && ttSkill))
             {

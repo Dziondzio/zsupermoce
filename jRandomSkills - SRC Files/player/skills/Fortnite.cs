@@ -1,6 +1,5 @@
 ﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using CounterStrikeSharp.API.Modules.Utils;
 using jRandomSkills.src.player;
 using System.Collections.Concurrent;
@@ -123,28 +122,33 @@ namespace jRandomSkills
             });
         }
 
-        public static void OnTakeDamage(DynamicHook h)
+        public static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info)
         {
-            CEntityInstance param = h.GetParam<CEntityInstance>(0);
-            CTakeDamageInfo param2 = h.GetParam<CTakeDamageInfo>(1);
+            if (entity == null || entity.Entity == null || info == null || info.Attacker == null || info.Attacker.Value == null)
+                return HookResult.Continue;
 
-            if (param == null || param.Entity == null || param2 == null || param2.Attacker == null || param2.Attacker.Value == null)
-                return;
+            CCSPlayerPawn attackerPawn = new(info.Attacker.Value.Handle);
+            if (attackerPawn.DesignerName != "player")
+                return HookResult.Continue;
 
-            if (string.IsNullOrEmpty(param.Entity.Name)) return;
-            if (!param.Entity.Name.StartsWith("FortniteWall")) return;
+            if (attackerPawn == null || attackerPawn.Controller?.Value == null)
+                return HookResult.Continue;
+            if (string.IsNullOrEmpty(entity.Entity?.Name)) return HookResult.Continue;
+            if (!entity.Entity.Name.StartsWith("FortniteWall")) return HookResult.Continue;
 
-            var box = param.As<CDynamicProp>();
-            if (box == null || !box.IsValid) return;
+            var box = entity.As<CDynamicProp>();
+            if (box == null || !box.IsValid) return HookResult.Continue;
             box.EmitSound("Wood_Plank.BulletImpact", volume: 1f);
 
             if (barricades.TryGetValue(box.Index, out int health))
             {
-                health -= (int)param2.Damage;
+                health -= (int)info.Damage;
                 barricades.AddOrUpdate(box.Index, health, (k, v) => health);
                 if (health <= 0) box.AcceptInput("Kill");
             }
             else box.AcceptInput("Kill");
+
+            return HookResult.Continue;
         }
 
         public class PlayerSkillInfo

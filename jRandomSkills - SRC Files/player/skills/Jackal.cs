@@ -32,7 +32,7 @@ namespace jRandomSkills
 
         public static void OnTick()
         {
-            if (Server.TickCount % 16 != 0) return;
+            if (Server.TickCount % 32 != 0) return;
             foreach (var step in stepBeams.ToList())
             {
                 var player = step.Key;

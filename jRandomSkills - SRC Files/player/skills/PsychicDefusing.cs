@@ -17,7 +17,7 @@ namespace jRandomSkills
 
         public static void LoadSkill()
         {
-            SkillUtils.RegisterSkill(skillName, "Medium", "Rozbrajasz bombę kiedy jesteś niedaleko", "#507529", 2);
+            SkillUtils.RegisterSkill(skillName, "Medium", "Rozbrajasz bombę zdalnie", "#507529", 2);
         }
 
         public static void NewRound()
@@ -63,10 +63,10 @@ namespace jRandomSkills
                 var player = playerController.As<CCSPlayerController>();
                 if (player == null || !player.IsValid) return;
 
-                if (pawn.AbsOrigin == null || SkillUtils.GetDistance(pawn.AbsOrigin, bombLocation) > 350f)
+                if (pawn.AbsOrigin == null || SkillUtils.GetDistance(pawn.AbsOrigin, bombLocation) > 400f)
                 {
                     info.Defusing = false;
-                    info.DefusingTime = 10f;
+                    info.DefusingTime = 12f;
                     continue;
                 }
 
@@ -98,7 +98,7 @@ namespace jRandomSkills
             {
                 SteamID = player.SteamID,
                 Defusing = false,
-                DefusingTime = 10f,
+                DefusingTime = 12f,
             });
         }
 
@@ -112,13 +112,15 @@ namespace jRandomSkills
         private static void UpdateHUD(CCSPlayerController player, PlayerSkillInfo skillInfo)
         {
             if (!skillInfo.Defusing) return;
-            int cooldown = (int)Math.Ceiling(skillInfo.DefusingTime);
+            float percent = Math.Clamp((1f - (skillInfo.DefusingTime / 12f)) * 100f, 0f, 100f);
 
             var skillData = SkillData.Skills.FirstOrDefault(s => s.Skill == skillName);
             if (skillData == null) return;
 
             string skillLine = $"<font class='fontSize-m' class='fontWeight-Bold' color='{skillData.Color}'>{skillData.Name}</font> <br>";
-            string remainingLine = cooldown != 0 ? $"<font class='fontSize-m' color='#FFFFFF'>Rozbrojenie za <font color='#00d5ff'>{cooldown}</font> sek.</font>" : $"<font class='fontSize-s' class='fontWeight-Bold' color='#FFFFFF'>{skillData.Description}</font>";
+            string remainingLine = percent < 100f
+                ? $"<font class='fontSize-m' color='#b5ffee'>Rozbrajanie: <font color='#00d5ff'>{percent:0}%</font></font>"
+                : $"<font class='fontSize-s' class='fontWeight-Bold' color='#FFFFFF'>{skillData.Description}</font>";
 
             var hudContent = skillLine + remainingLine;
             player.PrintToCenterHtml(hudContent);

@@ -83,9 +83,9 @@ namespace jRandomSkills
             skillList.RemoveAll(s => s?.Skill == skillPlayer?.Skill || s?.Skill == skillPlayer?.SpecialSkill || s?.Skill == Skills.None);
 
             if (player.Team == CsTeam.Terrorist)
-                skillList.RemoveAll(s => Event.counterterroristSkills.Any(s2 => s2.Name == s.Skill.ToString()));
+                skillList.RemoveAll(s => SkillData.Skills.Any(s2 => s2.Name == s.Skill.ToString() && s.TeamNumber == 2));
             else
-                skillList.RemoveAll(s => Event.terroristSkills.Any(s2 => s2.Name == s.Skill.ToString()));
+                skillList.RemoveAll(s => SkillData.Skills.Any(s2 => s2.Name == s.Skill.ToString() && s.TeamNumber == 1));
 
             return skillList.Count == 0 ? [Event.noneSkill] : skillList;
         }

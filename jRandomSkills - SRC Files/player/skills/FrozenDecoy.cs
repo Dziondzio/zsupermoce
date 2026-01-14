@@ -2,7 +2,6 @@
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Entities.Constants;
 using CounterStrikeSharp.API.Modules.Utils;
-using System.Drawing;
 using jRandomSkills.src.player;
 using System.Collections.Concurrent;
 using static jRandomSkills.jRandomSkills;

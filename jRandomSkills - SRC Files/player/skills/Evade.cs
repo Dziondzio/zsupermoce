@@ -1,5 +1,4 @@
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using jRandomSkills.src.player;
 using static jRandomSkills.jRandomSkills;
 
@@ -14,30 +13,31 @@ namespace jRandomSkills
             SkillUtils.RegisterSkill(skillName, "CS2", "25% szans na uniknięcie trafienia", "#b2dd18");
         }
 
-        public static void OnTakeDamage(DynamicHook h)
+        public static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info)
         {
-            var param = h.GetParam<CEntityInstance>(0);
-            var param2 = h.GetParam<CTakeDamageInfo>(1);
+            if (entity == null || entity.Entity == null || info == null || info.Attacker == null || info.Attacker.Value == null)
+                return HookResult.Continue;
 
-            if (param?.Entity == null || param2?.Attacker?.Value == null)
-                return;
-
-            var attackerPawn = new CCSPlayerPawn(param2.Attacker.Value.Handle);
-            var victimPawn = new CCSPlayerPawn(param.Handle);
+            CCSPlayerPawn attackerPawn = new(info.Attacker.Value.Handle);
+            CCSPlayerPawn victimPawn = new(entity.Handle);
 
             if (attackerPawn.DesignerName != "player" || victimPawn.DesignerName != "player")
-                return;
+                return HookResult.Continue;
 
-            var attackerController = attackerPawn.Controller?.Value?.As<CCSPlayerController>();
-            var victimController = victimPawn.Controller?.Value?.As<CCSPlayerController>();
-            if (attackerController == null || victimController == null)
-                return;
+            if (attackerPawn == null || attackerPawn.Controller?.Value == null || victimPawn == null || victimPawn.Controller?.Value == null)
+                return HookResult.Continue;
 
-            var playerInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == victimController.SteamID);
-            if (playerInfo?.Skill == skillName && victimController.PawnIsAlive && Instance?.Random.Next(1, 5) == 1)
+            CCSPlayerController attacker = attackerPawn.Controller.Value.As<CCSPlayerController>();
+            CCSPlayerController victim = victimPawn.Controller.Value.As<CCSPlayerController>();
+
+            var playerInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == attacker.SteamID);
+            if (playerInfo == null) return HookResult.Continue;
+            if (playerInfo?.Skill == skillName && victim.PawnIsAlive && Instance?.Random.Next(1, 5) == 1)
             {
-                param2.Damage = 0f;
+                info.Damage = 0f;
             }
+
+            return HookResult.Continue;
         }
     }
 }

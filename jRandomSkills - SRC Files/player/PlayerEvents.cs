@@ -2,8 +2,6 @@ using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Modules.Cvars;
-using CounterStrikeSharp.API.Modules.Memory;
-using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using CounterStrikeSharp.API.Modules.UserMessages;
 using CounterStrikeSharp.API.Modules.Utils;
 using jRandomSkills.src.player;
@@ -46,7 +44,7 @@ namespace jRandomSkills
             Instance?.RegisterListener<OnTick>(OnTick);
 
             Instance?.HookUserMessage(208, PlayerMakeSound);
-            VirtualFunctions.CBaseEntity_TakeDamageOldFunc.Hook(OnTakeDamage, HookMode.Pre);
+            Instance?.RegisterListener<OnEntityTakeDamagePre>(OnTakeDamage);
         }
 
         private static HookResult HandleSkillEvent(string eventName, object arg)
@@ -79,7 +77,7 @@ namespace jRandomSkills
         private static HookResult PlayerHurt(EventPlayerHurt @event, GameEventInfo info) => HandleSkillEvent("PlayerHurt", @event);
         private static HookResult PlayerJump(EventPlayerJump @event, GameEventInfo info) => HandleSkillEvent("PlayerJump", @event);
         private static HookResult PlayerBlind(EventPlayerBlind @event, GameEventInfo info) => HandleSkillEvent("PlayerBlind", @event);
-        private static HookResult OnTakeDamage(DynamicHook h) => HandleSkillEvent("OnTakeDamage", h);
+        private static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info) => HandleSkillEvent("OnTakeDamage", info);
 
         private static void OnTick()
         {

@@ -85,13 +85,6 @@ namespace jRandomSkills
                     skills.Add(skillData.Skill.ToString());
                     menuItems.Add(($"{skillData.Name}", enemy.Index.ToString()));
                 }
-                int ctSkills = Event.counterterroristSkills.Count(s => skills.Contains(s.Name));
-                int ttSkills = Event.terroristSkills.Count(s => skills.Contains(s.Name));
-                if ((player.Team == CsTeam.Terrorist && ctSkills == skills.Count) || (player.Team == CsTeam.CounterTerrorist && ttSkills == skills.Count))
-                {
-                    Event.SetRandomSkill(player);
-                    return;
-                }
                 SkillUtils.CreateMenu(player, menuItems);
             }
             else
@@ -113,8 +106,8 @@ namespace jRandomSkills
             if (playerInfo == null || enemyInfo == null) return;
 
             var enemySkill = enemyInfo.Skill;
-            bool ctSkill = Event.counterterroristSkills.Any(s => s.Name == enemySkill.ToString());
-            bool ttSkill = Event.terroristSkills.Any(s => s.Name == enemySkill.ToString());
+            bool ctSkill = SkillData.Skills.Any(s => s.Skill == enemySkill && s.TeamNumber == 2);
+            bool ttSkill = SkillData.Skills.Any(s => s.Skill == enemySkill && s.TeamNumber == 1);
 
             if ((player.Team == CsTeam.Terrorist && ctSkill) || (player.Team == CsTeam.CounterTerrorist && ttSkill) || enemySkill == playerInfo.Skill)
             {

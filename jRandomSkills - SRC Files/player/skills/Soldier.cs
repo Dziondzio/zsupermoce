@@ -1,5 +1,4 @@
 ﻿using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using jRandomSkills.src.player;
 using static jRandomSkills.jRandomSkills;
 
@@ -24,34 +23,34 @@ namespace jRandomSkills
             playerInfo.RandomPercentage = "+" + randomValue.ToString() + "%";
         }
 
-        public static void OnTakeDamage(DynamicHook h)
+        public static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info)
         {
-            CEntityInstance param = h.GetParam<CEntityInstance>(0);
-            CTakeDamageInfo param2 = h.GetParam<CTakeDamageInfo>(1);
 
-            if (param == null || param.Entity == null || param2 == null || param2.Attacker == null || param2.Attacker.Value == null)
-                return;
+            if (entity == null || entity.Entity == null || info == null || info.Attacker == null || info.Attacker.Value == null)
+                return HookResult.Continue;
 
-            CCSPlayerPawn attackerPawn = new(param2.Attacker.Value.Handle);
-            CCSPlayerPawn victimPawn = new(param.Handle);
+            CCSPlayerPawn attackerPawn = new(info.Attacker.Value.Handle);
+            CCSPlayerPawn victimPawn = new(entity.Handle);
 
             if (attackerPawn.DesignerName != "player" || victimPawn.DesignerName != "player")
-                return;
+                return HookResult.Continue;
 
             if (attackerPawn == null || attackerPawn.Controller?.Value == null || victimPawn == null || victimPawn.Controller?.Value == null)
-                return;
+                return HookResult.Continue;
 
             CCSPlayerController attacker = attackerPawn.Controller.Value.As<CCSPlayerController>();
             CCSPlayerController victim = victimPawn.Controller.Value.As<CCSPlayerController>();
 
             var playerInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == attacker.SteamID);
-            if (playerInfo == null) return;
+            if (playerInfo == null) return HookResult.Continue;
 
             if (playerInfo.Skill == skillName && attacker.PawnIsAlive)
             {
                 float? skillChance = playerInfo.SkillChance;
-                param2.Damage *= skillChance ?? 1f;
+                info.Damage *= skillChance ?? 1f;
             }
+
+            return HookResult.Continue;
         }
     }
 }

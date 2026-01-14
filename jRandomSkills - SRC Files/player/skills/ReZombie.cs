@@ -61,7 +61,7 @@ namespace jRandomSkills
             QAngle deadRotation = new(pawn.EyeAngles.X, pawn.EyeAngles.Y, pawn.EyeAngles.Z);
 
             player.Respawn();
-            Instance?.AddTimer(0.3f, () =>
+            Instance?.AddTimer(0.2f, () =>
             {
                 lock (setLock)
                 {
@@ -71,7 +71,7 @@ namespace jRandomSkills
                     AddHealth(player, 900);
                     pawn.Teleport(deadPosition, deadRotation);
                     player.ExecuteClientCommand("slot3");
-                    Instance?.AddTimer(1f, () => player.ExecuteClientCommand("slot3"));
+                    Instance?.AddTimer(0.5f, () => player.ExecuteClientCommand("slot3"));
                 }
             });
         }

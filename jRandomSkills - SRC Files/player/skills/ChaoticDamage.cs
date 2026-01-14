@@ -1,7 +1,6 @@
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
-using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using jRandomSkills.src.player;
 using static jRandomSkills.jRandomSkills;
 using System.Collections.Concurrent;
@@ -17,7 +16,7 @@ namespace jRandomSkills
 
         public static void LoadSkill()
         {
-            SkillUtils.RegisterSkill(skillName, "Podejrzane naboje", "Możesz na 5 sek. wywołać na serwerze losowe obrażenia pocisków", "#a8720c");
+            SkillUtils.RegisterSkill(skillName, "Podejrzane naboje", "Możesz na 5 sek. włączyć losowe obrażenia pocisków", "#a8720c");
         }
 
         public static void NewRound()
@@ -101,31 +100,35 @@ namespace jRandomSkills
             public DateTime Cooldown { get; set; }
         }
 
-        public static void OnTakeDamage(DynamicHook h)
+        public static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info)
         {
-            if (!Randomness) return;
+            if (!Randomness) return HookResult.Continue;
 
-            var param = h.GetParam<CEntityInstance>(0);
-            var param2 = h.GetParam<CTakeDamageInfo>(1);
+            if (entity == null || entity.Entity == null || info == null || info.Attacker == null || info.Attacker.Value == null)
+                return HookResult.Continue;
 
-            if (param?.Entity == null || param2?.Attacker?.Value == null)
-                return;
-
-            var attackerPawn = new CCSPlayerPawn(param2.Attacker.Value.Handle);
-            var victimPawn = new CCSPlayerPawn(param.Handle);
+            CCSPlayerPawn attackerPawn = new(info.Attacker.Value.Handle);
+            CCSPlayerPawn victimPawn = new(entity.Handle);
 
             if (attackerPawn.DesignerName != "player" || victimPawn.DesignerName != "player")
-                return;
+                return HookResult.Continue;
 
-            var attackerController = attackerPawn.Controller?.Value?.As<CCSPlayerController>();
-            if (attackerController == null || victimPawn.Controller?.Value == null)
-                return;
+            if (attackerPawn == null || attackerPawn.Controller?.Value == null || victimPawn == null || victimPawn.Controller?.Value == null)
+                return HookResult.Continue;
+
+            CCSPlayerController attacker = attackerPawn.Controller.Value.As<CCSPlayerController>();
+            CCSPlayerController victim = victimPawn.Controller.Value.As<CCSPlayerController>();
+
+            var playerInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == attacker.SteamID);
+            if (playerInfo == null) return HookResult.Continue;
 
             var activeWeapon = attackerPawn.WeaponServices?.ActiveWeapon.Value;
-            if (activeWeapon != null && attackerController.PawnIsAlive)
+            if (activeWeapon != null && attacker.PawnIsAlive)
             {
-                param2.Damage = Instance?.Random.Next(1, 99) ?? 1;
+                info.Damage = Instance?.Random.Next(1, 99) ?? 1;
             }
+
+            return HookResult.Continue;
         }
     }
 }
