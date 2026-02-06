@@ -1,17 +1,58 @@
-Jest to fork jrandomskills, który jest forkiem drandomskills.
 
-Ta wersja jest używana na serwerze Nostalgia (54.38.195.168:27277)
+Aktualna wersja jest używana na serwerze **Zagrajnia**:  
+👉 **moce.zagrajnia.pl**
 
-Co wyróżnia tą wersję od jrandomskills?
-- Odchudzenie skryptu z niepotrzebnych funkcji
-- Dodatkowe null checki by zminimalizować ryzyko zawieszenia serwera
-- Usunąłem CS2FlashingHudFix ponieważ znacznie zwiększa zużycie procesora i psuje rozgrzewkę.
-- Zmieniono wiadomość powitalną, by nauczyć graczy używania mocy.
-- Usunąłem supermoce, które nie podobają się graczom z serwera
-- Opis supermocy dostępny na środku ekranu, zamiast na czacie
-- Usunięto niepotrzebny mi system językowy oraz configi
-- Niektóre supermoce mają doprecyzowany opis lub funkcje, oraz zmienioną nazwę lub funkcję, np. bogacz może też podwoić swoje pieniądze za kill
-- Wszystkie supermoce na przycisk mają losowy cooldown
-- Dodałem nowe lub przywróciłem stare moce: Komandos, Dopaminka, CS2, Trujące naboje, Ciepłe piwo, Ćpun, Komornik, Manipulant, Rusznikarz, Krwiopijca, Matrix, Chachmęciarz
+---
 
-I wiele więcej, ale już zapomniałem, co się zmieniło.
+## ✨ Co wyróżnia tę wersję?
+
+W porównaniu do `supermoce_cs2`:
+
+- 🛠️ poprawione bugi
+- 🔧 stabilniejsze działanie pluginu
+- 🧹 drobne poprawki jakości kodu
+- 🚀 wersja sprawdzona na publicznym serwerze
+
+Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
+
+---
+
+## 🎮 Funkcje
+
+- Losowe supermoce dla graczy
+- Urozmaicona i dynamiczna rozgrywka
+- Plugin oparty na sprawdzonych rozwiązaniach
+- Możliwość dalszej rozbudowy o nowe moce
+
+---
+
+## 🧩 Wymagania
+
+- Counter-Strike 2
+- SourceMod (wersja kompatybilna z CS2)
+- Metamod
+
+---
+
+## ⚙️ Instalacja
+
+1. Pobierz plugin
+2. Wgraj pliki do odpowiednich katalogów SourceMod
+3. Zrestartuj serwer
+4. Gotowe – supermoce są aktywne 💥
+
+---
+
+## 🧠 Autorzy i podziękowania
+
+- **drandomskills** – oryginalny pomysł
+- **jrandomskills** – rozwój projektu
+- **supermoce_cs2** – port na CS2
+- **ZSupermoce** – aktualna wersja i poprawki
+
+---
+
+## 📜 Licencja
+
+Projekt bazuje na oryginalnym kodzie.  
+Możesz go używać, modyfikować i rozwijać dalej.
