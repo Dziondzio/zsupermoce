@@ -47,7 +47,7 @@ Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
 
 - **drandomskills** – oryginalny pomysł
 - **jrandomskills** – rozwój projektu
-- **supermoce_cs2** – port na CS2
+- **supermoce_cs2** – rozwój lepszy projektu
 - **ZSupermoce** – aktualna wersja i poprawki
 
 ---
