@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 using jRandomSkills.src.player;
@@ -57,15 +57,17 @@ namespace jRandomSkills
             playerInfo.SkillChance = 0;
 
             var skills = GetSkills(player);
-            var firstSkill = skills[(Instance?.Random.Next(skills.Count)) ?? 0];
-            skills.Remove(firstSkill);
-            var secondSkill = skills[(Instance?.Random.Next(skills.Count)) ?? 0];
-            skills.Remove(secondSkill);
-            var thirdSkill = skills[(Instance?.Random.Next(skills.Count)) ?? 0];
+            ConcurrentBag<(string, string)> menuItems = [];
 
-            ConcurrentBag<(string, string)> menuItems = [(firstSkill.Name, firstSkill.Skill.ToString()),
-                                                   (secondSkill.Name, secondSkill.Skill.ToString()),
-                                                    (thirdSkill.Name, thirdSkill.Skill.ToString())];
+            // Add up to 3 random skills
+            for (int i = 0; i < 3 && skills.Count > 0; i++)
+            {
+                var index = Instance?.Random.Next(skills.Count) ?? 0;
+                var selectedSkill = skills[index];
+                menuItems.Add((selectedSkill.Name, selectedSkill.Skill.ToString()));
+                skills.RemoveAt(index);
+            }
+
             SkillUtils.CreateMenu(player, menuItems);
         }
 

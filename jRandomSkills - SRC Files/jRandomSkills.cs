@@ -19,9 +19,9 @@ namespace jRandomSkills
         public IWasdMenuManager? MenuManager;
 
         public override string ModuleName => "Supermoce";
-        public override string ModuleAuthor => "D3X (dRandomSkills), Juzlus (jRandomSkills), Rabbit";
-        public override string ModuleDescription => "Fork forka który dodaje graczom supermoce";
-        public override string ModuleVersion => "1.2.1";
+        public override string ModuleAuthor => "ZSuperMoce fork from dRandomSkills, Juzlus (jRandomSkills), Rabbit";
+        public override string ModuleDescription => "Fork forka forka";
+        public override string ModuleVersion => "1.2.2";
 
         public override void Load(bool hotReload)
         {

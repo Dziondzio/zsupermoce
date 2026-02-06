@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj": {}
+    "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj": {}
   },
   "projects": {
-    "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj": {
+    "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj",
+        "projectUniqueName": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
         "projectName": "WASDMenuAPI",
-        "projectPath": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/WASDMenuAPI.csproj",
-        "packagesPath": "/home/rabbit/.nuget/packages/",
-        "outputPath": "/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/obj/",
+        "projectPath": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+        "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/rabbit/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/a9clw3385jmizh108ma0dhglwb573xfc-dotnet-sdk-8.0.416/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -103,6 +103,7 @@ namespace jRandomSkills
         {
             var camera = Utilities.CreateEntityByName<CDynamicProp>("prop_dynamic");
             if (camera == null || !camera.IsValid) return 0;
+            camera.SetModel("models/editor/camera.vmdl");
 
             var pawn = player.PlayerPawn.Value;
             if (pawn == null || !pawn.IsValid || pawn.AbsOrigin == null) return 0;

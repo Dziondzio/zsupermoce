@@ -12,8 +12,6 @@
     <PackageReference Include="CS2TraceRay" Version="1.0.8"/>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="WASDMenuAPI">
-      <HintPath>/home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/bin/Debug/net8.0/WASDMenuAPI.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\WASDMenuAPI\WASDMenuAPI.csproj" />
   </ItemGroup>
 </Project>

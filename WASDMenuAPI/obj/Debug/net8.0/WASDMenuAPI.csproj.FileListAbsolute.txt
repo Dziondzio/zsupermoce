@@ -11,3 +11,15 @@
 /home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/obj/Debug/net8.0/refint/WASDMenuAPI.dll
 /home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/obj/Debug/net8.0/WASDMenuAPI.pdb
 /home/rabbit/Dokumenty/Github/supermoce_cs2/WASDMenuAPI/obj/Debug/net8.0/ref/WASDMenuAPI.dll
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\bin\Debug\net8.0\WASDMenuAPI.deps.json
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\bin\Debug\net8.0\WASDMenuAPI.dll
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\bin\Debug\net8.0\WASDMenuAPI.pdb
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.csproj.AssemblyReference.cache
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.AssemblyInfoInputs.cache
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.AssemblyInfo.cs
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.csproj.CoreCompileInputs.cache
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.dll
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\refint\WASDMenuAPI.dll
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\WASDMenuAPI.pdb
+C:\Users\konra\Desktop\supermoce_cs2-main\WASDMenuAPI\obj\Debug\net8.0\ref\WASDMenuAPI.dll
