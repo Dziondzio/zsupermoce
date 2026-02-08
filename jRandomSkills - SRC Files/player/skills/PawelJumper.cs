@@ -40,6 +40,10 @@ namespace jRandomSkills
                 : 1f;
             playerInfo.SkillChance = extraJumps;
             playerInfo.RandomPercentage = $"+{extraJumps}";
+            
+            J[player.Slot] = 0;
+            LF[player.Slot] = (PlayerFlags)playerPawn.Flags;
+            LB[player.Slot] = player.Buttons;
         }
 
         private static void GiveAdditionalJump(CCSPlayerController player)
@@ -52,6 +56,8 @@ namespace jRandomSkills
 
             var playerInfo = Instance?.SkillPlayer.FirstOrDefault(p => p.SteamID == player.SteamID);
             if (playerPawn == null || playerInfo == null) return;
+
+            if (J[player.Slot] == null) J[player.Slot] = 0;
 
             if ((LF[player.Slot] & PlayerFlags.FL_ONGROUND) != 0 && (flags & PlayerFlags.FL_ONGROUND) == 0 && (LB[player.Slot] & PlayerButtons.Jump) == 0 && (buttons & PlayerButtons.Jump) != 0)
             {
