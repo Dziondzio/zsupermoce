@@ -2560,11 +2560,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+      "projectUniqueName": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj",
       "projectName": "WASDMenuAPI",
-      "projectPath": "C:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+      "projectPath": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj",
       "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\obj\\",
+      "outputPath": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -233,10 +233,10 @@ namespace jRandomSkills
         {
             if (jRandomSkills.Instance == null || jRandomSkills.Instance.GameRules == null) return;
             int totalRoundsPlayed = ctScore + tScore;
-            int maxRounds = ConVar.Find("mp_maxrounds")?.GetPrimitiveValue<int>() ?? 24;
+            int maxRounds = GetConVarInt("mp_maxrounds", 24);
             int halfRounds = maxRounds / 2;
-            int overtimeMaxRounds = ConVar.Find("mp_overtime_maxrounds")?.GetPrimitiveValue<int>() ?? 6;
-            int overtimeLimit = ConVar.Find("mp_overtime_limit")?.GetPrimitiveValue<int>() ?? 1;
+            int overtimeMaxRounds = GetConVarInt("mp_overtime_maxrounds", 6);
+            int overtimeLimit = GetConVarInt("mp_overtime_limit", 1);
 
             var gameRulesProxy = jRandomSkills.Instance.GameRules;
             gameRulesProxy.TotalRoundsPlayed = totalRoundsPlayed;
@@ -340,6 +340,18 @@ namespace jRandomSkills
                 Utilities.SetStateChanged(tTeams, "CCSTeam", "m_scoreFirstHalf");
                 Utilities.SetStateChanged(tTeams, "CCSTeam", "m_scoreSecondHalf");
                 Utilities.SetStateChanged(tTeams, "CCSTeam", "m_scoreOvertime");
+            }
+        }
+
+        public static int GetConVarInt(string name, int defaultValue)
+        {
+            try
+            {
+                return ConVar.Find(name)?.GetPrimitiveValue<int>() ?? defaultValue;
+            }
+            catch
+            {
+                return defaultValue;
             }
         }
     }

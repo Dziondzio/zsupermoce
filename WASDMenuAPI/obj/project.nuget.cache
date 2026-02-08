@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8tWf68blEgg=",
+  "dgSpecHash": "DCTShKKZ2Sc=",
   "success": true,
-  "projectFilePath": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+  "projectFilePath": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\konra\\.nuget\\packages\\counterstrikesharp.api\\1.0.355\\counterstrikesharp.api.1.0.355.nupkg.sha512",
     "C:\\Users\\konra\\.nuget\\packages\\mcmaster.netcore.plugins\\1.4.0\\mcmaster.netcore.plugins.1.4.0.nupkg.sha512",

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WASDMenuAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f24bb73670be6fd30d54ccea39863694bc3d2ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("WASDMenuAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WASDMenuAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

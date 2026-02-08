@@ -150,7 +150,7 @@ namespace jRandomSkills
                 }
 
                 Instance?.RemoveListener<CheckTransmit>(CheckTransmit);
-                int freezetime = ConVar.Find("mp_freezetime")?.GetPrimitiveValue<int>() ?? 0;
+                int freezetime = SkillUtils.GetConVarInt("mp_freezetime", 0);
                 freezeTimeEnd = DateTime.Now.AddSeconds(freezetime + (Instance?.GameRules?.TeamIntroPeriod == true ? 7 : 0));
                 Instance?.AddTimer((Instance?.GameRules?.TeamIntroPeriod == true ? 7 : 0) + Math.Max(freezetime - 5, 0) + .3f, SetSkill);
                 if(Instance?.GameRules?.ITotalRoundsPlayed == 5) Server.PrintToChatAll($" {ChatColors.Yellow}Znalazłeś błąd? Daj mi znać na discordzie {ChatColors.LightBlue}https://dc.zagrajnia.pl");

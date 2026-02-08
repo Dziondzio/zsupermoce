@@ -21,7 +21,7 @@ namespace jRandomSkills
         public override string ModuleName => "Supermoce";
         public override string ModuleAuthor => "ZSuperMoce fork from dRandomSkills, Juzlus (jRandomSkills), Rabbit";
         public override string ModuleDescription => "Fork forka forka";
-        public override string ModuleVersion => "1.2.2";
+        public override string ModuleVersion => "1.2.3";
 
         public override void Load(bool hotReload)
         {

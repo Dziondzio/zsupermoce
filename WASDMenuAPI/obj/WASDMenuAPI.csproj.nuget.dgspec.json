@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj": {}
+    "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj": {
+    "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+        "projectUniqueName": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj",
         "projectName": "WASDMenuAPI",
-        "projectPath": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\WASDMenuAPI.csproj",
+        "projectPath": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\WASDMenuAPI.csproj",
         "packagesPath": "C:\\Users\\konra\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\konra\\Desktop\\supermoce_cs2-main\\WASDMenuAPI\\obj\\",
+        "outputPath": "C:\\Users\\konra\\Documents\\GitHub\\zsupermoce\\WASDMenuAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\konra\\AppData\\Roaming\\NuGet\\NuGet.Config"
