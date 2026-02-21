@@ -57,7 +57,7 @@ PRZYKŁAD: `css_testskill RainbowShots`
 - **ZSupermoce** – aktualna wersja 
 
 ---
-[text](<jRandomSkills - SRC Files/125.md>)
+[1.2.5](<jRandomSkills - SRC Files/125.md>)
 
 
 
