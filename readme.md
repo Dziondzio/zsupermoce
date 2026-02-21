@@ -8,10 +8,8 @@ Aktualna wersja jest używana na serwerze **Zagrajnia**:
 
 W porównaniu do `supermoce_cs2`:
 
-- 🛠️ poprawione bugi
-- 🔧 stabilniejsze działanie pluginu
-- 🧹 drobne poprawki jakości kodu
-- 🚀 wersja sprawdzona na publicznym serwerze
+- poprawione bugi, stabilniejsze działanie pluginu, drobne poprawki jakości kodu
+-  Nowe moce i funkcje
 
 Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
 
@@ -20,9 +18,10 @@ Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
 ## 🎮 Funkcje
 
 - Losowe supermoce dla graczy
-- Urozmaicona i dynamiczna rozgrywka
+- Urozmaicona rozgrywka z dynamicznymi supermocemi
 - Plugin oparty na sprawdzonych rozwiązaniach
 - Możliwość dalszej rozbudowy o nowe moce
+- Wsparcie dla nowych wersji CS2 i SourceMod
 
 ---
 
@@ -30,16 +29,23 @@ Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
 
 - Counter-Strike 2
 - SourceMod (wersja kompatybilna z CS2)
-- Metamod
+- Metamod: Source (MM:Source)
 
 ---
 
 ## ⚙️ Instalacja
 
 1. Pobierz plugin
-2. Wgraj pliki do odpowiednich katalogów SourceMod
-3. Zrestartuj serwer
+2. Wgraj pliki do `/game/csgo/addons/counterstrikesharp/plugins`
+3. Zrestartuj serwer (Hot Reload nie działa.)
 4. Gotowe – supermoce są aktywne 💥
+- Naciśnij INSPEKT, aby użyc Supermocy
+---
+
+## ⚙️ Komendy
+
+1. css_testskill <moc>
+PRZYKŁAD: `css_testskill RainbowShots`
 
 ---
 
@@ -48,9 +54,19 @@ Bez zbędnych zmian — **ten sam koncept, lepsze wykonanie**.
 - **drandomskills** – oryginalny pomysł
 - **jrandomskills** – rozwój projektu
 - **supermoce_cs2** – rozwój lepszy projektu
-- **ZSupermoce** – aktualna wersja i poprawki
+- **ZSupermoce** – aktualna wersja 
 
 ---
+[text](<jRandomSkills - SRC Files/125.md>)
+
+
+
+
+## 🚨 Ważne:
+- Wszystkie skills mają cooldown - nie da się spamować
+- Niektóre skills resetują się po śmierci/nowej rundzie
+- Skills działają tylko na żywych graczach
+- Admin commands mogą ominąć niektóre ograniczenia
 
 ## 📜 Licencja
 

@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Modules.Memory.DynamicFunctions;
 using CounterStrikeSharp.API.Modules.UserMessages;
@@ -138,4 +138,8 @@ public enum Skills
     Wallhack,
     WeaponsSwap,
     Zeus,
+    RainbowShots,
+    TimeDewastor,
+    SmallCharacter,
+    TeleportHack,
 }

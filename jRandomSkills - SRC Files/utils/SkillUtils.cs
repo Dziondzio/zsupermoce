@@ -172,7 +172,7 @@ namespace jRandomSkills
             manager.UpdateActiveMenu(player, list);
         }
 
-         public static void CreateMenu(CCSPlayerController? player, ConcurrentBag<(string, string)> enemies)
+         public static void CreateMenu(CCSPlayerController? player, ConcurrentBag<(string, string)> enemies, string? title = null)
         {
             if (player?.IsValid != true) return;
 
@@ -182,7 +182,7 @@ namespace jRandomSkills
             var skillData = SkillData.Skills.FirstOrDefault(s => s.Skill == playerInfo.Skill);
             if (skillData == null) return;
 
-            string skillLine = $"<font class='fontSize-l' class='fontWeight-Bold' color='{skillData.Color}'>{skillData.Name}</font><br><font class='fontSize-s' class='fontWeight-Bold' color='white'>{skillData.Description}</font>";
+            string skillLine = title ?? $"<font class='fontSize-l' class='fontWeight-Bold' color='{skillData.Color}'>{skillData.Name}</font><br><font class='fontSize-s' class='fontWeight-Bold' color='white'>{skillData.Description}</font>";
 
             var manager = GetMenuManager();
             if (manager == null) return;

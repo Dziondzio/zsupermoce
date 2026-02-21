@@ -75,7 +75,7 @@ namespace jRandomSkills
         private static HookResult SmokegrenadeDetonate(EventSmokegrenadeDetonate @event, GameEventInfo info) => HandleSkillEvent("SmokegrenadeDetonate", @event);
         private static HookResult SmokegrenadeExpired(EventSmokegrenadeExpired @event, GameEventInfo info) => HandleSkillEvent("SmokegrenadeExpired", @event);
         private static HookResult PlayerHurt(EventPlayerHurt @event, GameEventInfo info) => HandleSkillEvent("PlayerHurt", @event);
-        private static HookResult PlayerJump(EventPlayerJump @event, GameEventInfo info) => HandleSkillEvent("PlayerJump", @event);
+        private static HookResult PlayerJump(EventPlayerJump @event, GameEventInfo info) => HandleSkillEvent("PlayerJump", new object[] { @event });
         private static HookResult PlayerBlind(EventPlayerBlind @event, GameEventInfo info) => HandleSkillEvent("PlayerBlind", @event);
         private static HookResult OnTakeDamage(CEntityInstance entity, CTakeDamageInfo info) => HandleSkillEvent("OnTakeDamage", new object[] { entity, info });
 

@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 using jRandomSkills.src.player;
@@ -17,7 +17,7 @@ namespace jRandomSkills
 
         public static void LoadSkill()
         {
-            SkillUtils.RegisterSkill(skillName, "Medium", "Rozbrajasz bombę zdalnie", "#507529", 2);
+            SkillUtils.RegisterSkill(skillName, "Zdalny Defuser", "Rozbrajasz bombę zdalnie z odległości do 400 jednostek", "#507529", 2);
         }
 
         public static void NewRound()
@@ -58,10 +58,10 @@ namespace jRandomSkills
                 var info = skillInfo.Value;
 
                 var playerController = pawn.Controller.Value;
-                if (playerController == null || !pawn.Controller.IsValid) return;
+                if (playerController == null || !pawn.Controller.IsValid) continue;
 
                 var player = playerController.As<CCSPlayerController>();
-                if (player == null || !player.IsValid) return;
+                if (player == null || !player.IsValid) continue;
 
                 if (pawn.AbsOrigin == null || SkillUtils.GetDistance(pawn.AbsOrigin, bombLocation) > 400f)
                 {

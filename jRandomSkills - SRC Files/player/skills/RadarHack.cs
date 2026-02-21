@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using jRandomSkills.src.player;
 using static jRandomSkills.jRandomSkills;
@@ -32,12 +32,14 @@ namespace jRandomSkills
         {
             if (player == null || !player.IsValid || player.PlayerPawn?.Value == null) return;
             int playerIndex = (int)player.Index - 1;
+            int slot = playerIndex / 32;
+            int bit = playerIndex % 32;
 
             foreach (var enemy in Utilities.GetPlayers().FindAll(p => p.Team != player.Team && p.PawnIsAlive))
             {
                 var enemyPawn = enemy.PlayerPawn.Value;
                 if (enemyPawn == null) continue;
-                enemyPawn.EntitySpottedState.SpottedByMask[0] |= 1u << playerIndex % 32;
+                enemyPawn.EntitySpottedState.SpottedByMask[slot] |= 1u << bit;
 
             }
 
@@ -46,7 +48,7 @@ namespace jRandomSkills
             {
                 var bomb = bombEntities.FirstOrDefault();
                 if (bomb != null)
-                    bomb.EntitySpottedState.SpottedByMask[0] |= 1u << playerIndex % 32;
+                    bomb.EntitySpottedState.SpottedByMask[slot] |= 1u << bit;
             }
         }
     }

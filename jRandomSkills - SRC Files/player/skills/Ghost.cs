@@ -105,6 +105,17 @@ namespace jRandomSkills
             var playerPawn = player.PlayerPawn.Value;
             if (playerPawn != null)
             {
+                if (!visible)
+                {
+                    var idx = playerPawn.Index;
+                    if (invisibleEntities.TryGetValue(player.SteamID, out var items))
+                    {
+                        if (!items.Contains(idx))
+                            items.Add(idx);
+                    }
+                    else
+                        invisibleEntities.TryAdd(player.SteamID, [idx]);
+                }
                 var color = visible ? Color.FromArgb(255, 255, 255, 255) : Color.FromArgb(0, 255, 255, 255);
                 var shadowStrength = visible ? 1.0f : 0.0f;
 

@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Core;
 using jRandomSkills.src.player;
 using static jRandomSkills.jRandomSkills;
 
@@ -33,7 +33,13 @@ namespace jRandomSkills
             if (playerInfo == null) return HookResult.Continue;
 
             if (playerInfo.Skill == skillName && attacker.PawnIsAlive)
-                info.Damage = 1000f;
+            {
+                var victimController = victimPawn.Controller?.Value?.As<CCSPlayerController>();
+                if (victimController == null || !victimController.IsValid) return HookResult.Continue;
+                if (attacker.TeamNum == victimPawn.TeamNum) return HookResult.Continue;
+                var victimHealth = victimPawn.Health;
+                info.Damage = Math.Max(info.Damage, victimHealth + 5f);
+            }
 
             return HookResult.Continue;
         }

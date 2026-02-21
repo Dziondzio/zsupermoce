@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 using jRandomSkills.src.player;
@@ -103,7 +103,7 @@ namespace jRandomSkills
         {
             var camera = Utilities.CreateEntityByName<CDynamicProp>("prop_dynamic");
             if (camera == null || !camera.IsValid) return 0;
-            camera.SetModel("models/editor/camera.vmdl");
+            camera.SetModel("models/weapons/w_c4_dropped.vmdl");
 
             var pawn = player.PlayerPawn.Value;
             if (pawn == null || !pawn.IsValid || pawn.AbsOrigin == null) return 0;
